@@ -52,6 +52,18 @@ export function isapple(fruit){
     }
 }
 
+export function isEmpty(vacio){
+
+    if (vacio == null){
+        return true
+    }
+    else
+    {
+        return false
+    }
+}
+
+
 function MiComponente() {
     
         return <div>Aquí se llamarían a las funciones</div>
