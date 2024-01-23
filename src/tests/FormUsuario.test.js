@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import FormUsuario from './FormUsuario';
+import FormUsuario from '../components/FormUsuario';
 
 describe('FormUsuario', () => {
   it('renders the button', () => {

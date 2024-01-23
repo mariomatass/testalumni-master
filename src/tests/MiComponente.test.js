@@ -1,44 +1,79 @@
-import {titleCase, divide, sum, isapple} from '../components/MiComponente'
+import MiComponente, { titleCase, divide, sum, isapple, isEmpty } from '../components/MiComponente';
 
-describe('funciones dentro del componente MiComponente', () => {
-    describe('titleCase', () => {
-        test('debe retornar un string', () =>
-        {   //Compruebo si la ejecuación de la función titleCase pasándole cualquier
-            //valor de string me devuelve un string
-            const result = titleCase('Un valor');
-            expect(typeof result).toBe('string')
-        })
+describe('titleCase', () => {
+  it('should capitalize the first letter of each word', () => {
+    expect(titleCase('estamos todos bien')).toBe('Estamos Todos Bien');
+  });
 
-        test('debe retornar el string transformado', () => 
-        {
-            const result = titleCase('es una string chiquitita');
-            expect(result).toBe('Es Una String Chiquitita');
-
-        })
-
-
-    });
-
-    
-    describe('sum', () => {
-        test('debe retornar un número si los sumandos son números', () =>
-        {   //Compruebo si la ejecuaciónd e la función titleCase pasándole cualquier
-            //valor de string me devuelve un string
-            const result = sum(2,3);
-            expect(typeof result).toBe('number')
-        })
-
-        test('debe retornar null si algún sumando no es un número', () =>
-        {   
-            const result = sum('hola',3);
-            expect(result).toBe(null)
-        })
-        test('debe retornar la suma', () => 
-        {
-            const result = sum(-2,5);
-            expect(result).toBe(3);
-        })
-       
-    });
-
+  it('should return an empty string for an empty input', () => {
+    expect(titleCase('')).toBe('');
+  });
 });
+
+describe('divide', () => {
+    it('should return a number', () => {
+      const result = divide(10, 2);
+      expect(typeof result).toBe('number');
+    });
+  
+    it('should return null for a string input', () => {
+      const result = divide('abc', 'def');
+      expect(result).toBeNull();
+    });
+  
+    it('should perform division of 10 and 2', () => {
+      const result = divide(10, 2);
+      expect(result).toBe(5);
+    });
+  
+    it('should perform division of 10 and 4 with precision (using toBeCloseTo())', () => {
+      const result = divide(10, 4);
+      expect(result).toBeCloseTo(2.5);
+    });
+  
+    it('should return null for division by 0', () => {
+      const result = divide(5, 0);
+      expect(result).toBeNull();
+    });
+  });
+
+describe('sum', () => {
+  it('should sum two numbers', () => {
+    expect(sum(3, 5)).toBe(8);
+  });
+
+  it('should return null for non-numeric inputs', () => {
+    expect(sum('abc', 'def')).toBeNull();
+  });
+});
+
+describe('isapple', () => {
+  it('should return a boolean', () => {
+    const result = isapple('manzana');
+    expect(typeof result).toBe('boolean');
+  });
+
+  it('should return true for the string "manzana"', () => {
+    const result = isapple('manzana');
+    expect(result).toBeTruthy();
+  });
+
+  it('should return false for a string that is not "manzana"', () => {
+    const result = isapple('banana');
+    expect(result).toBeFalsy();
+  });
+});
+
+describe('isEmpty', () => {
+  it('should return true for null', () => {
+    expect(isEmpty(null)).toBe(true);
+  });
+
+  it('should return false for non-null values', () => {
+    expect(isEmpty('hello')).toBe(false);
+    expect(isEmpty(42)).toBe(false);
+    expect(isEmpty({ key: 'value' })).toBe(false);
+  });
+});
+
+

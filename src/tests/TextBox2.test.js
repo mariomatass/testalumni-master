@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import TextBox2 from './TextBox2';
+import TextBox2 from '../components/TextBox2';
 
 describe('TextBox2', () => {
   it('should render the Box and Button elements', () => {

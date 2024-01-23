@@ -1,4 +1,3 @@
-//Aquí hago un formulario con un campo de texto y un botón.
 import React from "react";
 import Button from '@mui/material/Button'
 import Avatar from "@mui/material/Avatar"
@@ -14,9 +13,7 @@ function FormUsuario() {
 
 
     const handleSubmit = (e) => {
-        //Para que no mande el formulario, sino que haga lo que yo le diga
         e.preventDefault();
-        //muestro una imagen
 
         setNombre('')
 
@@ -50,6 +47,4 @@ function FormUsuario() {
 }
 
 export default FormUsuario
-
-// {texto !== '' && <h6>{texto}</h6>  }
 
